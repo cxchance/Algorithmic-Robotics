@@ -50,7 +50,6 @@ def algorithm_pf(env, U, epsilon, Z, delta, N, M):
 		r = np.random.normal(0, 1./M)
 		c = Wt[0]
 		i = 0
-		print Wt
 		pos = -1
 		b = 0
 		for m in range(0, M):
@@ -60,13 +59,11 @@ def algorithm_pf(env, U, epsilon, Z, delta, N, M):
 					b = 1
 					break
 				i = i + 1
-				print i, u, c
 				c = c + Wt[i]
 			if b == 0:
 				if pos != i:
 					particle_kind = particle_kind + 1
 				pos = i
-			print m, pos
 			Xt.append(St[pos])
 		##################### XiChen
 		##################### WeiJian Lecture slide approach
@@ -621,7 +618,7 @@ if __name__ == "__main__":
 	plt.savefig('EKF-ICP.png')
 	# plt.show()
 	plt.pause(.001)
-	print('EKF-ICP done')
+	print('EKF-ICP done, please wait for PF')
 	#### YOUR CODE HERE ####
 	M = 64 ###Number of samples### Set to 300 for results
 	epsilon = 0.1 #### gaussian noise
